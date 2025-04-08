@@ -27,7 +27,6 @@ def main():
     asteroid_field = AsteroidField()
 
 
-
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -43,10 +42,11 @@ def main():
             if player.check_collision(asteroid):
                 print("Game over!")
                 sys.exit()
+                
             # Delete an asteroid if a bullet reach into an asteroid
             for shot in shots:
                 if shot.check_collision(asteroid):
-                    asteroid.kill()
+                    asteroid.split()
 
         pygame.display.flip()
 
